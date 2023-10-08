@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "Land Area Vs Density ",
+    "data": {
+      "url": "world_pop_data_continent.csv"
+    },
+    "params": [
+      {
+      "name": "Continent_selection",
+      "bind": {
+      "input": "select",
+      "options": [
+        null,
+        "North America",
+        "South America",
+        "Europe",
+        "Africa",
+        "Asia",
+        "Oceania"
+],
+"labels":[
+"Show All",
+"North America",
+"South America",
+"Europe",
+"Africa",
+"Asia",
+"Oceania"
+],
+"name": "Continent Selection: "
+}
+}
+],
+"transform": [
+
+  {
+  "filter": "Continent_selection == null || datum.Continent == Continent_selection"}
+  ],
+
+      
+    "mark": "circle",
+    "encoding": {
+      "y": {
+        "field": " Land Area",
+        "type": "quantitative",
+        "scale":{"domain":[0,13900000]}
+        
+          
+      },
+      "x": {
+        "field": "Density ",
+        "type": "quantitative",
+        "scale":{"domain":[0,1000]}
+      },
+      "color": {
+        "field": "Continent",
+        "type": "nominal"
+      },
+      "size": {
+        "field":"Population (2020)",
+        "type":"quantitative"
+      },
+      "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "Density ", "type": "quantitative", "format": ","},
+        {"field": " Land Area", "type": "quantitative", "format": ","}
+        
+      ]
+    }
+  }
+    
+  
+    

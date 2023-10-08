@@ -1,0 +1,13 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 450,
+    "height": 400,
+    "description": "Increase in population through the years",
+    "data": {"url": "cleaned_pop_over_years.csv"},  
+    "mark": "line",
+    "encoding": {
+        "x": {"field": "Year", "type": "quantitative"},
+        "y": {"field": "World Population", "type": "quantitative"},
+        "color": {"field": "symbol", "type": "nominal"}
+    }
+}
